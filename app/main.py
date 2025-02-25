@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app import init_db
 import logging
-from .routers import auth, user, getHeating,forgotPassword
+from .routers import auth, user, getHeating,forgotPassword, order
 from .createAdmin import createAdmin
 
 
@@ -25,7 +25,7 @@ app.include_router(auth.router)
 app.include_router(user.router)
 app.include_router(getHeating.router)
 app.include_router(forgotPassword.router)
-
+app.include_router(order.router)
 @app.on_event("startup")
 async def startup_event():
     if createAdmin():
