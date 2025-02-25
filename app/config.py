@@ -2,10 +2,10 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 
-# Load environment variables from .env file
+# Load environment variables from .env file (only for local development)
 env_path = Path(__file__).resolve().parent.parent / ".env"
-load_dotenv(dotenv_path=env_path)
-
+if os.path.exists(env_path):
+    load_dotenv(dotenv_path=env_path)
 
 # JWT Authentication Configuration
 
