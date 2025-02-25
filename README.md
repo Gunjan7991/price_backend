@@ -47,7 +47,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 ## 🔑 Authentication
 
 The API uses JWT tokens for authentication:
-1. **Login**: `/auth/login` (returns access token)
+1. **Login**: `/login` (returns access token)
 2. **Protected Routes**: Requires `Authorization: Bearer <token>` header.
 
 ## 📚 API Documentation
