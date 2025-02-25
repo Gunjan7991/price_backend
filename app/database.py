@@ -40,8 +40,13 @@ class Order_Tracking(SQLModel, table=True):
     delivery_price: float
 
 class update_password(SQLModel):
-    cur_password:str = Field(nullable=False)
-    new_password: str =  Field(nullable=False)
+    cur_password:str 
+    new_password: str 
+
+class reset_password(SQLModel):
+    email:EmailStr
+    reset_token:str 
+    new_password: str 
 
 class user_create(SQLModel):
     name: str
