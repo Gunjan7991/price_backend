@@ -21,9 +21,8 @@ def add_pricing(session: SessionDep,  current_user: Annotated[User, Depends(get_
     daily_price: Daily_Price = Daily_Price(pricing= price)
     statement = select(Daily_Price).order_by(desc(Daily_Price.created_at)).limit(1)
     latest_pricing:Daily_Price = session.exec(statement).first()
-    latest_date = latest_pricing.created_at.date()
-    current_date = datetime.utcnow().date()
     if latest_pricing:
+        current_date = datetime.utcnow().date()
         latest_date = latest_pricing.created_at.date()  # Extract date from datetime
         if latest_date == current_date:
             logging.info("Daily Price already updated!!")
