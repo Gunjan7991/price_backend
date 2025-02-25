@@ -15,7 +15,7 @@ router = APIRouter(prefix="/api/v1/oil", tags=["OIL"])
 @router.post('')
 def add_pricing(session: SessionDep,  current_user: Annotated[User, Depends(get_current_user)]):
     user: User = current_user
-    if user.role is not Role.ADMIN:
+    if user.role != Role.ADMIN:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
     price = get_heating_oil()
     daily_price: Daily_Price = Daily_Price(pricing= price)
