@@ -40,8 +40,9 @@ Create a `.env` file to store sensitive configurations:
 ```
 SECRET_KEY=your_secret_key
 ALGORITHM=HS256
-DATABASE_URL=sqlite:///./database.db
 ACCESS_TOKEN_EXPIRE_MINUTES=30
+EMAIL=
+PASSWORD=
 ```
 
 ## 🔑 Authentication
