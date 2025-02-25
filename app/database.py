@@ -38,6 +38,7 @@ class Order_Tracking(SQLModel, table=True):
     delivery_date: datetime | None
     bol: str
     delivery_price: float
+    user_id: uuid.UUID = Field(foreign_key="user.id", nullable=False, ondelete="CASCADE")
 
 class update_password(SQLModel):
     cur_password:str 
@@ -61,6 +62,18 @@ class user_display(SQLModel):
     password: str
     phone_number: str 
 
+class Order(SQLModel):
+    order_date: datetime | None 
+    delivery_date: datetime | None
+    bol: str | None
+    delivery_price: float | None
+
+class Update_Order(SQLModel):
+    id: uuid.UUID
+    order_date: datetime | None 
+    delivery_date: datetime | None
+    bol: str | None
+    delivery_price: float | None
 """
 Token
 """
